@@ -90,6 +90,7 @@ function RootComponent() {
           <main className="flex-1 p-4 md:p-8">
             <Outlet />
           </main>
+          <Toaster />
         </div>
       </div>
     </SidebarProvider>
