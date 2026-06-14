@@ -13,7 +13,7 @@ export type Notification = {
 export const notifications: Notification[] = [
   { id: "1", platform: "twitter", type: "mention", user: "Alex Rivera", handle: "@alexr", text: "Mentioned you in a thread about AI tooling.", time: "2m" },
   { id: "2", platform: "linkedin", type: "comment", user: "Priya Shah", handle: "priya-shah", text: "Loved your post on shipping fast — added a thought.", time: "14m" },
-  { id: "3", platform: "twitter", type: "like", user: "Marco Liu", handle: "@marcoliu", text: "Liked your post: \"Ship small, ship often\".", time: "1h" },
+  { id: "3", platform: "twitter", type: "like", user: "Marco Liu", handle: "@marcoliu", text: 'Liked your post: "Ship small, ship often".', time: "1h" },
   { id: "4", platform: "linkedin", type: "follow", user: "Stripe", handle: "stripe", text: "Started following your page.", time: "3h" },
   { id: "5", platform: "twitter", type: "repost", user: "Hana Kim", handle: "@hanak", text: "Reposted your thread on dashboards.", time: "5h" },
   { id: "6", platform: "linkedin", type: "comment", user: "Diego Romero", handle: "diego-r", text: "Great breakdown — would love a follow-up.", time: "1d" },
@@ -39,3 +39,40 @@ export const stats = [
   { label: "Engagements", value: "2.4k", delta: "+12%" },
   { label: "Scheduled", value: "5", delta: "next 24h" },
 ];
+
+// --- Persisted posts (client-side) ---
+export type StoredPost = {
+  id: string;
+  text: string;
+  platforms: Platform[];
+  status: "posted" | "scheduled" | "draft";
+  scheduledFor?: string; // ISO
+  createdAt: string; // ISO
+};
+
+const KEY = "socialhub.posts.v1";
+
+export function loadPosts(): StoredPost[] {
+  if (typeof window === "undefined") return [];
+  try {
+    return JSON.parse(localStorage.getItem(KEY) || "[]");
+  } catch {
+    return [];
+  }
+}
+
+export function savePosts(posts: StoredPost[]) {
+  if (typeof window === "undefined") return;
+  localStorage.setItem(KEY, JSON.stringify(posts));
+}
+
+export function addPost(p: Omit<StoredPost, "id" | "createdAt">): StoredPost {
+  const post: StoredPost = { ...p, id: crypto.randomUUID(), createdAt: new Date().toISOString() };
+  const all = [post, ...loadPosts()];
+  savePosts(all);
+  return post;
+}
+
+export function deletePost(id: string) {
+  savePosts(loadPosts().filter((p) => p.id !== id));
+}
