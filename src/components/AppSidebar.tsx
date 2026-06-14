@@ -1,5 +1,5 @@
 import { Link, useRouterState } from "@tanstack/react-router";
-import { LayoutDashboard, PenSquare, Link2, Settings, Sparkles } from "lucide-react";
+import { LayoutDashboard, PenSquare, Link2, Settings, CalendarClock, BarChart3 } from "lucide-react";
 import {
   Sidebar,
   SidebarContent,
@@ -11,10 +11,13 @@ import {
   SidebarMenuButton,
   SidebarMenuItem,
 } from "@/components/ui/sidebar";
+import { Logo } from "@/components/Logo";
 
 const items = [
   { title: "Dashboard", url: "/", icon: LayoutDashboard },
   { title: "Compose", url: "/compose", icon: PenSquare },
+  { title: "Schedule", url: "/schedule", icon: CalendarClock },
+  { title: "Analytics", url: "/analytics", icon: BarChart3 },
   { title: "Accounts", url: "/accounts", icon: Link2 },
   { title: "Settings", url: "/settings", icon: Settings },
 ];
@@ -27,11 +30,9 @@ export function AppSidebar() {
     <Sidebar collapsible="icon">
       <SidebarHeader className="border-b border-sidebar-border">
         <div className="flex items-center gap-2 px-2 py-3">
-          <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-[image:var(--gradient-primary)] shadow-[var(--shadow-glow)]">
-            <Sparkles className="h-4 w-4 text-primary-foreground" />
-          </div>
+          <Logo size={32} />
           <div className="flex flex-col leading-tight group-data-[collapsible=icon]:hidden">
-            <span className="text-sm font-semibold">SocialHub AI</span>
+            <span className="text-sm font-semibold tracking-tight">SocialHub AI</span>
             <span className="text-xs text-muted-foreground">Command center</span>
           </div>
         </div>
