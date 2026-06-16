@@ -166,6 +166,29 @@ function Dashboard() {
           </Card>
         </div>
       </div>
+
+      <Card className="border-border/60 bg-card/60 backdrop-blur">
+        <CardHeader>
+          <CardTitle className="text-base">Jump to your social platforms</CardTitle>
+        </CardHeader>
+        <CardContent>
+          <div className="grid grid-cols-3 gap-3 sm:grid-cols-4 md:grid-cols-7">
+            {socialLinks.map(({ name, url, Icon, color }) => (
+              <a
+                key={name}
+                href={url}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={`Open ${name}`}
+                className={`group flex flex-col items-center gap-2 rounded-lg border border-border/60 bg-background/40 p-4 text-muted-foreground transition hover:border-primary/40 hover:bg-background/80 hover:shadow-[var(--shadow-elegant)] ${color}`}
+              >
+                <Icon className="h-6 w-6 transition-transform group-hover:scale-110" />
+                <span className="text-xs font-medium text-foreground">{name}</span>
+              </a>
+            ))}
+          </div>
+        </CardContent>
+      </Card>
     </div>
   );
 }
