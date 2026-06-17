@@ -24,36 +24,10 @@ A unified social media control dashboard to manage multiple platforms (X/Twitter
 - **Backend:** TanStack server functions (`createServerFn`)
 - **Deploy:** Lovable (Cloudflare Workers edge runtime)
 
-## 🚀 Run locally
 
-```bash
-# 1. Install dependencies
-bun install
-
-# 2. Set up environment
-cp .env.example .env
-# Add your LOVABLE_API_KEY (get one from https://lovable.dev)
-
-# 3. Start the dev server
-bun run dev
-```
-
-Then open http://localhost:3000.
-
-### Build for production
-
-```bash
 bun run build
 bun run start
 ```
-
-## 🔑 Environment variables
-
-| Variable | Description |
-| --- | --- |
-| `LOVABLE_API_KEY` | Server-side key for Lovable AI Gateway (AI compose/summaries) |
-
-Never expose `LOVABLE_API_KEY` to the browser — it's read inside server functions only.
 
 ## 📁 Project structure
 
