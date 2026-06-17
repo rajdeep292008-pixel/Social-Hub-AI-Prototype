@@ -2,7 +2,7 @@
 
 A unified social media control dashboard to manage multiple platforms (X/Twitter, LinkedIn, and more) from a single, clean interface — powered by AI.
 
-🌐 **Live demo:** publish from Lovable to get your `.lovable.app` URL.
+🌐 **Live demo:** https://social-media-hub-ai.lovable.app.
 
 ## ✨ Features
 
@@ -50,6 +50,4 @@ src/
 
 Click **Publish** in the Lovable editor to deploy to `your-app.lovable.app`. Custom domains are available under Project Settings → Domains.
 
-## 📜 License
 
-MIT — built with [Lovable](https://lovable.dev).
