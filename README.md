@@ -24,10 +24,7 @@ A unified social media control dashboard to manage multiple platforms (X/Twitter
 - **Backend:** TanStack server functions (`createServerFn`)
 - **Deploy:** Lovable (Cloudflare Workers edge runtime)
 
-
-bun run build
-bun run start
-```
+---
 
 ## 📁 Project structure
 
