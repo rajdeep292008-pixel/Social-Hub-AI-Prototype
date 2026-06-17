@@ -44,10 +44,5 @@ src/
 │   ├── ai-gateway.server.ts   # Lovable AI Gateway provider
 │   └── mock.ts                # Demo data
 └── styles.css           # Tailwind v4 + design tokens
-```
-
-## 🚢 Deploy
-
-Click **Publish** in the Lovable editor to deploy to `your-app.lovable.app`. Custom domains are available under Project Settings → Domains.
 
 
