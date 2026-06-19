@@ -26,6 +26,10 @@ A unified social media control dashboard to manage multiple platforms (X/Twitter
 
 ---
 
+Made with 💚 with the help of AI.
+
+---
+
 ## 📁 Project structure
 
 ```
@@ -45,8 +49,6 @@ src/
 │   └── mock.ts                # Demo data
 └── styles.css           # Tailwind v4 + design tokens
 
----
 
-Made with 💚 with the help of AI.
 
 
