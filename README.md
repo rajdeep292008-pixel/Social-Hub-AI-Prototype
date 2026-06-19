@@ -45,4 +45,8 @@ src/
 │   └── mock.ts                # Demo data
 └── styles.css           # Tailwind v4 + design tokens
 
+---
+
+Made with 💚 with the help of AI.
+
 
