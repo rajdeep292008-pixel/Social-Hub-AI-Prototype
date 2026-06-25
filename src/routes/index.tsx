@@ -14,7 +14,7 @@ const socialLinks = [
   { name: "Reddit", url: "https://www.reddit.com", Icon: Rss, color: "hover:text-[hsl(16_100%_50%)]" },
   { name: "GitHub", url: "https://github.com", Icon: Github, color: "hover:text-foreground" },
   { name: "Twitch", url: "https://www.twitch.tv", Icon: Twitch, color: "hover:text-[hsl(264_100%_64%)]" },
-  { name: "Discord", url: "https://discord.com/app", Icon: MessageCircle, color: "hover:text-[hsl(235_86%_65%)]" },
+  { name: "Discord", url: "https://discord.com/channels/@me", Icon: MessageCircle, color: "hover:text-[hsl(235_86%_65%)]" },
 ];
 
 export const Route = createFileRoute("/")({
