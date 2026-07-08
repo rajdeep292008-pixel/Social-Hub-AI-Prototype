@@ -1,5 +1,5 @@
 import { Link, useRouterState } from "@tanstack/react-router";
-import { LayoutDashboard, PenSquare, Link2, Settings, CalendarClock, BarChart3 } from "lucide-react";
+import { LayoutDashboard, PenSquare, Clock } from "lucide-react";
 import {
   Sidebar,
   SidebarContent,
@@ -14,12 +14,9 @@ import {
 import { Logo } from "@/components/Logo";
 
 const items = [
-  { title: "Dashboard", url: "/", icon: LayoutDashboard },
-  { title: "Compose", url: "/compose", icon: PenSquare },
-  { title: "Schedule", url: "/schedule", icon: CalendarClock },
-  { title: "Analytics", url: "/analytics", icon: BarChart3 },
-  { title: "Accounts", url: "/accounts", icon: Link2 },
-  { title: "Settings", url: "/settings", icon: Settings },
+  { title: "Hub", url: "/", icon: LayoutDashboard },
+  { title: "Writer", url: "/compose", icon: PenSquare },
+  { title: "Time spent", url: "/analytics", icon: Clock },
 ];
 
 export function AppSidebar() {
@@ -32,8 +29,8 @@ export function AppSidebar() {
         <div className="flex items-center gap-2 px-2 py-3">
           <Logo size={32} />
           <div className="flex flex-col leading-tight group-data-[collapsible=icon]:hidden">
-            <span className="text-sm font-semibold tracking-tight">SocialHub AI</span>
-            <span className="text-xs text-muted-foreground">Command center</span>
+            <span className="text-sm font-semibold tracking-tight">SocialHub</span>
+            <span className="text-xs text-muted-foreground">All networks, one tap</span>
           </div>
         </div>
       </SidebarHeader>
