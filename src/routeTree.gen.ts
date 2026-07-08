@@ -9,23 +9,10 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
-import { Route as SettingsRouteImport } from './routes/settings'
-import { Route as ScheduleRouteImport } from './routes/schedule'
 import { Route as ComposeRouteImport } from './routes/compose'
 import { Route as AnalyticsRouteImport } from './routes/analytics'
-import { Route as AccountsRouteImport } from './routes/accounts'
 import { Route as IndexRouteImport } from './routes/index'
 
-const SettingsRoute = SettingsRouteImport.update({
-  id: '/settings',
-  path: '/settings',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ScheduleRoute = ScheduleRouteImport.update({
-  id: '/schedule',
-  path: '/schedule',
-  getParentRoute: () => rootRouteImport,
-} as any)
 const ComposeRoute = ComposeRouteImport.update({
   id: '/compose',
   path: '/compose',
@@ -36,11 +23,6 @@ const AnalyticsRoute = AnalyticsRouteImport.update({
   path: '/analytics',
   getParentRoute: () => rootRouteImport,
 } as any)
-const AccountsRoute = AccountsRouteImport.update({
-  id: '/accounts',
-  path: '/accounts',
-  getParentRoute: () => rootRouteImport,
-} as any)
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
@@ -49,75 +31,36 @@ const IndexRoute = IndexRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
-  '/accounts': typeof AccountsRoute
   '/analytics': typeof AnalyticsRoute
   '/compose': typeof ComposeRoute
-  '/schedule': typeof ScheduleRoute
-  '/settings': typeof SettingsRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
-  '/accounts': typeof AccountsRoute
   '/analytics': typeof AnalyticsRoute
   '/compose': typeof ComposeRoute
-  '/schedule': typeof ScheduleRoute
-  '/settings': typeof SettingsRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
-  '/accounts': typeof AccountsRoute
   '/analytics': typeof AnalyticsRoute
   '/compose': typeof ComposeRoute
-  '/schedule': typeof ScheduleRoute
-  '/settings': typeof SettingsRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths:
-    | '/'
-    | '/accounts'
-    | '/analytics'
-    | '/compose'
-    | '/schedule'
-    | '/settings'
+  fullPaths: '/' | '/analytics' | '/compose'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/accounts' | '/analytics' | '/compose' | '/schedule' | '/settings'
-  id:
-    | '__root__'
-    | '/'
-    | '/accounts'
-    | '/analytics'
-    | '/compose'
-    | '/schedule'
-    | '/settings'
+  to: '/' | '/analytics' | '/compose'
+  id: '__root__' | '/' | '/analytics' | '/compose'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
-  AccountsRoute: typeof AccountsRoute
   AnalyticsRoute: typeof AnalyticsRoute
   ComposeRoute: typeof ComposeRoute
-  ScheduleRoute: typeof ScheduleRoute
-  SettingsRoute: typeof SettingsRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
-    '/settings': {
-      id: '/settings'
-      path: '/settings'
-      fullPath: '/settings'
-      preLoaderRoute: typeof SettingsRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/schedule': {
-      id: '/schedule'
-      path: '/schedule'
-      fullPath: '/schedule'
-      preLoaderRoute: typeof ScheduleRouteImport
-      parentRoute: typeof rootRouteImport
-    }
     '/compose': {
       id: '/compose'
       path: '/compose'
@@ -132,13 +75,6 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AnalyticsRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/accounts': {
-      id: '/accounts'
-      path: '/accounts'
-      fullPath: '/accounts'
-      preLoaderRoute: typeof AccountsRouteImport
-      parentRoute: typeof rootRouteImport
-    }
     '/': {
       id: '/'
       path: '/'
@@ -151,11 +87,8 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
-  AccountsRoute: AccountsRoute,
   AnalyticsRoute: AnalyticsRoute,
   ComposeRoute: ComposeRoute,
-  ScheduleRoute: ScheduleRoute,
-  SettingsRoute: SettingsRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
